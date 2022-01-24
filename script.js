@@ -17,10 +17,10 @@ async function fetchApi() {
     function createGrid() {
         const container = document.querySelector(".container");
         container.style.display = "grid";
-        container.style.gridTemplateColumns = "auto auto auto auto auto";
-        container.style.gridTemplateRows = "auto auto auto auto auto";
-        container.style.gridAutoFlow = "row";
-        container.style.gridGap = "30px";
+        container.style.gridTemplateColumns = "20% 20% 20% 20%";
+        container.style.gridTemplateRows = "20% auto auto auto auto";
+        container.style.gridAutoFlow = "column";
+        container.style.gridGap = "10px";
     }
 
     function makeLayout() {
@@ -36,7 +36,8 @@ async function fetchApi() {
         data.hits.forEach(item => {
             const image = document.createElement("img");
             image.src = item.webformatURL;
-            //image.style.gridColumn = "1/ 2"
+            image.style.gridColumn = "Math.floor(Math.random() * 10) + 1/Math.floor(Math.random() * 10) + 1";
+            image.style.gridRow = "Math.floor(Math.random() * 10) + 1/Math.floor(Math.random() * 10) + 1";
             container.appendChild(image);
         })
     }
